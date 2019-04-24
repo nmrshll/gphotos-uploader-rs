@@ -15,13 +15,10 @@ impl<'a> TokenSource<'a> {
             TokenStorage: tokenStorage,
         }
     }
-    // fn get_foo(&'a self) -> &'a TokenStorage {
-    //     &*self.TokenStorage
-    // }
     pub fn get_token(self) -> Result<Token, Box<dyn Error>> {
         match self.TokenStorage.get_token() {
             Ok(token) => Ok(token),
-            Err(err) => {
+            Err(_) => {
                 // if none found, authenticate
                 self.Authenticator.authenticate().expect("wot da fucc");
                 Ok(String::from("sometoken"))
@@ -31,11 +28,6 @@ impl<'a> TokenSource<'a> {
 }
 
 type Token = String;
-
-// const SERVICE_NAME:&str = "my_application_name";
-// const
-
-// pub struct TokenStorage {}
 
 pub trait TokenStorage {
     fn get_token(self: Box<Self>) -> Result<Token, Box<dyn Error>>;

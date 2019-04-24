@@ -1,3 +1,34 @@
+
+#[macro_use]
+extern crate serde_derive;
+
+extern crate hyper;
+extern crate serde;
+extern crate serde_json;
+extern crate yup_oauth2 as oauth2;
+extern crate mime;
+extern crate url;
+
+mod cmn;
+
+use std::collections::HashMap;
+use std::cell::RefCell;
+use std::borrow::BorrowMut;
+use std::default::Default;
+use std::collections::BTreeMap;
+use serde_json as json;
+use std::io;
+use std::fs;
+use std::mem;
+use std::thread::sleep;
+use std::time::Duration;
+
+pub use cmn::{MultiPartReader, ToParts, MethodInfo, Result, Error, CallBuilder, Hub, ReadSeek, Part,
+              ResponseResult, RequestValue, NestedType, Delegate, DefaultDelegate, MethodsBuilder,
+              Resource, ErrorResponse, remove_json_null_values};
+
+
+
 /// Identifies the an OAuth2 authorization scope.
 /// A scope is needed when requesting an
 /// [authorization token](https://developers.google.com/youtube/v3/guides/authentication).

@@ -1,6 +1,41 @@
+#![allow(unused_imports, unused_mut, dead_code)]
+
+
+#[macro_use]
+extern crate serde_derive;
+
+extern crate hyper;
+extern crate serde;
+extern crate serde_json;
+extern crate yup_oauth2 as oauth2;
+extern crate mime;
+extern crate url;
+
+// mod cmn;
+
+use std::collections::HashMap;
+use std::cell::RefCell;
+use std::borrow::BorrowMut;
+use std::default::Default;
+use std::collections::BTreeMap;
+use serde_json as json;
+use std::io;
+use std::fs;
+use std::mem;
+use std::thread::sleep;
+use std::time::Duration;
+
+// pub use cmn::{MultiPartReader, ToParts, MethodInfo, Result, Error, CallBuilder, Hub, ReadSeek, Part,
+//               ResponseResult, RequestValue, NestedType, Delegate, DefaultDelegate, MethodsBuilder,
+//               Resource, ErrorResponse, remove_json_null_values};
+
+              /////////////////
+
 use oauth2;
-// mod hub;
 mod scope;
+mod hub;
+
+
 
 pub const API_VERSION: &str = "v1";
 pub const API_BASEPATH: &str = "https://photoslibrary.googleapis.com/";

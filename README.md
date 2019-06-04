@@ -1,2 +1,2 @@
 # gphotos-uploader-rs
-Google photos uploader in rust
+Google photos uploader in rust (very WIP)
